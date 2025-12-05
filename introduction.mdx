@@ -1,0 +1,95 @@
+---
+title: Introduction
+description: Overview of TrilogyMC and its community support resources
+---
+
+## Getting Started with TrilogyMC
+
+TrilogyMC is a vibrant community dedicated to providing comprehensive support and resources for Minecraft enthusiasts. Whether you're a server administrator, a plugin developer, or a player seeking guidance, TrilogyMC offers a centralized hub for troubleshooting, documentation, and community interaction. Our platform connects members through detailed guides, frequently asked questions, and direct access to our Discord server and support email.
+
+<Columns cols={3}>
+  <Card title="Community Support" icon="users" href="#troubleshooting">
+    Access troubleshooting guides and FAQs to resolve common issues quickly.
+  </Card>
+  <Card title="Discord Server" icon="message-square" href="https://discord.gg/trilogymc">
+    Join our active community for real-time discussions and assistance.
+  </Card>
+  <Card title="Email Support" icon="mail" href="mailto:support@trilogymc.com">
+    Contact our support team directly for personalized help.
+  </Card>
+</Columns>
+
+## Key Features
+
+TrilogyMC stands out with its comprehensive approach to community support. We provide extensive documentation covering server setup, plugin configuration, performance optimization, and security best practices. Our troubleshooting section addresses common Minecraft server issues, from connection problems to plugin conflicts, with step-by-step solutions.
+
+<Tabs>
+  <Tab title="Guides" icon="book-open">
+    Access detailed tutorials for server management, plugin development, and advanced configurations.
+  </Tab>
+  <Tab title="FAQs" icon="help-circle">
+    Find answers to frequently asked questions about TrilogyMC services and features.
+  </Tab>
+  <Tab title="Resources" icon="link">
+    Explore additional community resources, including code snippets and configuration examples.
+  </Tab>
+</Tabs>
+
+## How to Get Help
+
+<Steps>
+  <Step title="Check Documentation" icon="search">
+    Start by browsing our guides and FAQs for quick answers to common questions.
+  </Step>
+  <Step title="Join Discord" icon="message-square">
+    Connect with our community on Discord for real-time support and discussions.
+  </Step>
+  <Step title="Contact Support" icon="mail">
+    If you need personalized assistance, reach out via email to support@trilogymc.com.
+  </Step>
+</Steps>
+
+## Code Examples
+
+For developers working with TrilogyMC plugins, here's a basic example of setting up a simple plugin:
+
+<CodeGroup tabs="Java,Kotlin">
+  ```java
+  public class TrilogyPlugin extends JavaPlugin {
+      @Override
+      public void onEnable() {
+          getLogger().info("TrilogyMC Plugin enabled!");
+      }
+  
+      @Override
+      public void onDisable() {
+          getLogger().info("TrilogyMC Plugin disabled!");
+      }
+  }
+  ```
+  ```kotlin
+  class TrilogyPlugin : JavaPlugin() {
+      override fun onEnable() {
+          logger.info("TrilogyMC Plugin enabled!")
+      }
+  
+      override fun onDisable() {
+          logger.info("TrilogyMC Plugin disabled!")
+      }
+  }
+  ```
+</CodeGroup>
+
+## Community Guidelines
+
+<Callout kind="info">
+  When seeking help, please provide detailed information about your issue, including server version, plugin list, and error messages. This helps our community provide more accurate assistance.
+</Callout>
+
+## What's Next
+
+Explore our getting started guide to set up your first TrilogyMC server, or dive into our troubleshooting section if you're facing specific issues. Our community is here to help you succeed with your Minecraft projects.
+
+<Expandable title="Advanced Topics" default-open="false">
+  For advanced users, we offer in-depth guides on custom plugin development, server optimization techniques, and integration with popular Minecraft tools. Check out our resources section for code examples and configuration templates.
+</Expandable>

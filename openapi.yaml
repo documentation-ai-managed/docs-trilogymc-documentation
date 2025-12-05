@@ -1,0 +1,175 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: TrilogyMC API
+  license:
+    name: MIT
+servers:
+  - url: https://api.trilogymc.com/v1
+paths:
+  /support-tickets:
+    get:
+      summary: Retrieve a list of all support tickets submitted by the authenticated user. This endpoint supports filtering by ticket status and sorting by creation date to help users track their support requests effectively.
+      operationId: listSupportTickets
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of tickets to return per page (default 20, max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: Successful response with paginated list of support tickets
+          headers:
+            x-next:
+              description: Link to the next page of results
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTickets'
+        default:
+          description: Unexpected error occurred while retrieving support tickets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create a new support ticket for assistance with TrilogyMC services. This endpoint allows users to submit detailed support requests including issue descriptions and priority levels for faster resolution.
+      operationId: createSupportTicket
+      responses:
+        201:
+          description: Support ticket created successfully
+        default:
+          description: Unexpected error occurred while creating the support ticket
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /support-tickets/{ticketId}:
+    get:
+      summary: Retrieve detailed information about a specific support ticket. This endpoint provides complete ticket history, responses, and current status to keep users informed about their support requests.
+      operationId: getSupportTicket
+      parameters:
+        - name: ticketId
+          in: path
+          required: true
+          description: Unique identifier of the support ticket to retrieve
+          schema:
+            type: string
+      responses:
+        200:
+          description: Detailed support ticket information retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTickets'
+        default:
+          description: Unexpected error occurred while retrieving the support ticket
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update an existing support ticket with new information or responses. This endpoint allows users to modify ticket details, add additional context, or close resolved tickets.
+      operationId: updateSupportTicket
+      responses:
+        200:
+          description: Support ticket updated successfully
+        default:
+          description: Unexpected error occurred while updating the support ticket
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /faqs:
+    get:
+      summary: Retrieve a comprehensive list of frequently asked questions and their answers. This endpoint supports category filtering and search functionality to help users quickly find relevant information.
+      operationId: listFaqs
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of FAQs to return per page (default 20, max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: Successful response with paginated list of FAQs
+          headers:
+            x-next:
+              description: Link to the next page of results
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faqs'
+        default:
+          description: Unexpected error occurred while retrieving FAQs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    SupportTicket:
+      required:
+        - id
+        - title
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        status:
+          type: string
+        priority:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    SupportTickets:
+      type: array
+      items:
+        $ref: '#/components/schemas/SupportTicket'
+    Faq:
+      required:
+        - id
+        - question
+        - answer
+      properties:
+        id:
+          type: integer
+          format: int64
+        question:
+          type: string
+        answer:
+          type: string
+        category:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Faqs:
+      type: array
+      items:
+        $ref: '#/components/schemas/Faq'
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

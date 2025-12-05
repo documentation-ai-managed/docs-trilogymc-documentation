@@ -1,0 +1,112 @@
+---
+title: Getting Started
+description: Step-by-step guide to setting up and using TrilogyMC community resources
+---
+
+## Setting Up Your TrilogyMC Account
+
+Getting started with TrilogyMC is straightforward. Whether you're new to Minecraft server administration or an experienced developer, our platform provides the tools and resources you need to succeed. This guide will walk you through the initial setup process and introduce you to our key features.
+
+<Columns cols={2}>
+  <Card title="Create Account" icon="user" href="#account-setup">
+    Register for free access to all TrilogyMC resources and community features.
+  </Card>
+  <Card title="Join Community" icon="users" href="#discord-join">
+    Connect with fellow Minecraft enthusiasts on our Discord server.
+  </Card>
+</Columns>
+
+## Account Registration
+
+<Steps>
+  <Step title="Visit Website" icon="globe">
+    Navigate to the TrilogyMC website and click on the "Sign Up" button in the top right corner.
+  </Step>
+  <Step title="Provide Details" icon="edit">
+    Enter your email address, create a username, and set a secure password.
+  </Step>
+  <Step title="Verify Email" icon="check-circle">
+    Check your email for a verification link and click it to activate your account.
+  </Step>
+  <Step title="Complete Profile" icon="user">
+    Add optional profile information to personalize your experience.
+  </Step>
+</Steps>
+
+## Joining Our Discord Community
+
+<Callout kind="tip">
+  Discord is our primary communication platform. Join us to get real-time help, participate in discussions, and stay updated on TrilogyMC news.
+</Callout>
+
+<Tabs>
+  <Tab title="Desktop" icon="monitor">
+    Download the Discord app from discord.com and sign in with your account.
+  </Tab>
+  <Tab title="Mobile" icon="smartphone">
+    Install the Discord app from your app store and log in.
+  </Tab>
+  <Tab title="Web" icon="globe">
+    Visit discord.com and use the web version.
+  </Tab>
+</Tabs>
+
+## Accessing Documentation
+
+Once registered, you can access our full documentation library. Our guides cover everything from basic server setup to advanced plugin development.
+
+<CodeGroup tabs="Command Line,Web Interface">
+  ```bash
+  # Clone our example repository
+  git clone https://github.com/trilogymc/examples.git
+  cd examples
+  
+  # Run the setup script
+  ./setup.sh
+  ```
+  ```javascript
+  // Web interface example
+  const trilogyApi = new TrilogyAPI({
+      apiKey: 'your-api-key',
+      baseUrl: 'https://api.trilogymc.com'
+  });
+  
+  trilogyApi.getGuides().then(guides => {
+      console.log('Available guides:', guides);
+  });
+  ```
+</CodeGroup>
+
+## First Server Setup
+
+<Expandable title="Basic Server Configuration" default-open="false">
+  Setting up your first Minecraft server with TrilogyMC support is easy. Follow these steps to get started:
+  
+  1. Download the latest Minecraft server JAR from minecraft.net
+  2. Create a new directory for your server
+  3. Place the JAR file in the directory and run it once to generate configuration files
+  4. Edit server.properties to configure basic settings
+  5. Install recommended plugins from our resources section
+  6. Start the server and connect to test your setup
+</Expandable>
+
+<ExpandableGroup>
+  <Expandable title="Plugin Installation" default-open="false">
+    Learn how to safely install and configure plugins on your TrilogyMC server.
+  </Expandable>
+  <Expandable title="Performance Tuning" default-open="false">
+    Optimize your server for better performance and stability.
+  </Expandable>
+</ExpandableGroup>
+
+## Troubleshooting Common Issues
+
+If you encounter problems during setup, our troubleshooting guide covers the most common issues. For immediate help, post in our Discord support channel or email support@trilogymc.com.
+
+<Callout kind="alert">
+  Remember to backup your server files before making major changes. This ensures you can restore your setup if something goes wrong.
+</Callout>
+
+## Next Steps
+
+With your account set up and basic knowledge in place, explore our advanced guides for plugin development, server optimization, and community features. Join our Discord community to connect with other users and get help with your projects.

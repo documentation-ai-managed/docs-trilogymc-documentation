@@ -1,0 +1,132 @@
+---
+title: Troubleshooting
+description: Common issues and solutions for TrilogyMC servers and community features
+---
+
+## Common Server Issues
+
+Running a Minecraft server can sometimes present challenges. TrilogyMC's troubleshooting guide covers the most frequent problems and provides step-by-step solutions to get your server back online quickly.
+
+<Columns cols={3}>
+  <Card title="Connection Problems" icon="wifi" href="#connection-issues">
+    Resolve issues with players unable to join your server.
+  </Card>
+  <Card title="Performance Issues" icon="zap" href="#performance-problems">
+    Fix lag, crashes, and slow server performance.
+  </Card>
+  <Card title="Plugin Conflicts" icon="alert-triangle" href="#plugin-issues">
+    Resolve conflicts between installed plugins.
+  </Card>
+</Columns>
+
+## Connection Issues
+
+<Steps>
+  <Step title="Check Server Status" icon="activity">
+    Verify that your server is running by checking the console for startup messages.
+  </Step>
+  <Step title="Firewall Configuration" icon="shield">
+    Ensure port 25565 (default Minecraft port) is open in your firewall.
+  </Step>
+  <Step title="IP Address Verification" icon="map-pin">
+    Confirm you're using the correct IP address and port combination.
+  </Step>
+  <Step title="Whitelist Settings" icon="users">
+    If whitelist is enabled, ensure players are added to the whitelist.
+  </Step>
+</Steps>
+
+## Performance Problems
+
+<Callout kind="info">
+  Server performance issues are often caused by insufficient RAM, outdated plugins, or world corruption. Monitor your server's resource usage regularly.
+</Callout>
+
+<Tabs>
+  <Tab title="Memory Issues" icon="cpu">
+    Allocate more RAM to your server by editing the startup script. Increase the -Xmx parameter from 2G to 4G or higher.
+  </Tab>
+  <Tab title="Plugin Optimization" icon="settings">
+    Remove unused plugins and update all installed plugins to their latest versions.
+  </Tab>
+  <Tab title="World Corruption" icon="alert-circle">
+    Create a backup of your world folder, then use Minecraft region fixer tools to repair corrupted chunks.
+  </Tab>
+</Tabs>
+
+## Plugin Conflicts
+
+<CodeGroup tabs="Plugin List Check,Console Errors">
+  ```bash
+  # List all installed plugins
+  ls plugins/
+  
+  # Check plugin versions
+  cat plugins/*/plugin.yml | grep version
+  ```
+  ```bash
+  # Check console for error messages
+  tail -f logs/latest.log | grep -i error
+  
+  # Look for plugin-specific errors
+  grep "PluginX" logs/latest.log
+  ```
+</CodeGroup>
+
+<Expandable title="Resolving Plugin Conflicts" default-open="false">
+  When plugins conflict, follow this systematic approach:
+  
+  1. Identify conflicting plugins by checking error logs
+  2. Temporarily disable one plugin at a time
+  3. Test server functionality after each disable
+  4. Update conflicting plugins to compatible versions
+  5. Contact plugin developers for known compatibility issues
+  6. Consider alternative plugins if conflicts persist
+</Expandable>
+
+## Account and Community Issues
+
+<ExpandableGroup>
+  <Expandable title="Discord Connection Problems" default-open="false">
+    If you can't join our Discord server, try clearing your browser cache, disabling VPN, or using a different device.
+  </Expandable>
+  <Expandable title="Email Support Delays" default-open="false">
+    Support emails are typically answered within 24 hours. For urgent issues, use Discord for faster response times.
+  </Expandable>
+  <Expandable title="Documentation Access" default-open="false">
+    If you can't access certain guides, ensure you're logged in and check your account permissions.
+  </Expandable>
+</ExpandableGroup>
+
+## Advanced Diagnostics
+
+<Steps>
+  <Step title="Enable Debug Logging" icon="file-text">
+    Add debug logging to your server startup script for detailed error information.
+  </Step>
+  <Step title="Monitor Resource Usage" icon="bar-chart">
+    Use tools like htop or Windows Task Manager to monitor CPU and memory usage.
+  </Step>
+  <Step title="Test in Clean Environment" icon="refresh-cw">
+    Create a minimal server setup with only essential plugins to isolate issues.
+  </Step>
+  <Step title="Update Java Version" icon="download">
+    Ensure you're running the latest stable version of Java compatible with your Minecraft version.
+  </Step>
+</Steps>
+
+<Callout kind="danger">
+  Before making major changes to fix issues, always create backups of your server files and world data to prevent data loss.
+</Callout>
+
+## Getting Additional Help
+
+If these solutions don't resolve your issue, gather the following information before contacting support:
+
+- Server version and Java version
+- Full list of installed plugins with versions
+- Recent console logs showing the error
+- Steps to reproduce the problem
+- Your system specifications (RAM, CPU, OS)
+
+Share this information in our Discord support channel or via email for faster, more accurate assistance.
